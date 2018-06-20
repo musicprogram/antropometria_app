@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bust:</strong>
+  <%= @measurement.bust %> = <%= @measurement.busto %>
+</p>
+
+<p>
+  <strong>Waist:</strong>
+  <%= @measurement.waist %>= <%= @measurement.cintura %>
+</p>
+
+<p>
+  <strong>Hip:</strong>
+  <%= @measurement.hip %> = <%= @measurement.cadera %>
+</p>
+
+<%= link_to 'Edit', edit_measurement_path(@measurement) %> |
+<%= link_to 'Back', measurements_path %>
+       

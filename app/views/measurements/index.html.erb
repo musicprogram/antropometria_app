@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Medidas</h1>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Busto/Media/Acercar</th>
+      <th>Cintura/Media/Acercar</th>
+      <th>Cadera/Media/Acercar</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @measurements.each do |measurement| %>
+    
+    
+      <tr>
+        <td> <%= measurement.bust %> | <%= measurement.busto_medida %> | <%= measurement.busto_split %></td>
+        <td> <%= measurement.waist %> | <%= measurement.cintura_medida %>| <%= measurement.cintura_split %> </td>
+        <td> <%= measurement.hip %> | <%= measurement.cadera_medida %> | <%= measurement.cadera_split %> </td>
+        <!%= link_to 'Show', measurement %>
+        <td><%= link_to 'Editar', edit_measurement_path(measurement) %></td>
+        <td><%= link_to 'Eliminar', measurement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar medida', new_measurement_path %>
