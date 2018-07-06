@@ -1,5 +1,7 @@
 class Measurement < ApplicationRecord
-    
+    validates :bust, :inclusion => 1..200 
+    validates :waist, :inclusion => 1..200
+    validates :hip, :inclusion => 1..200
     # def busto
     #     # 98 102.9  107.8 112.7 117.6
     #     # 98 93.1 88.2 83.3 78.4 73.5
@@ -88,57 +90,94 @@ class Measurement < ApplicationRecord
     #     end
     # end
     
+    
+    
+    
+    
+    
+    def sumar 
+    self.bust * 100    
+        
+    end 
+    
+    
+    
+    
+    
+    
+
+    
+    
     def busto_medida
       busto = ((self.bust - 98) / 4.90).round(2)
     end
     
-    def busto_split
-      busto = ((self.bust - 98) / 4.90).round(2)
-      decimal_sum(busto)
-    end
-    
+ 
     def cintura_medida
       ((self.waist - 80.73) /4.04).round(2)
     end
     
-    def cintura_split
-      cintura = ((self.waist - 80.73) /4.04).round(2)
-      decimal_sum(cintura)
-    end
-    
+
     def cadera_medida
       ((self.hip - 104.99) / 5.25).round(2)
     end
     
-    def cadera_split
-      cadera = ((self.hip - 104.99) / 5.25).round(2)
-      decimal_sum(cadera)
+    
+    def sum_promedio
+       (busto_medida() + cintura_medida() + cadera_medida()) / 3
     end
     
-    
-    def decimal_sum(mi_variable)
-      if mi_variable > 0
-          parts = mi_variable.to_s.split(".")
-          decimal_rest = parts[1].to_i
-          
-          if decimal_rest > 1 && decimal_rest <= 99
-            mi_variable.to_i + 1
-          else  
-            mi_variable.to_i
-          end
-      elsif
-          parts = mi_variable.to_s.split(".")
-          decimal_rest = parts[1].to_i
-          
-          if decimal_rest > 1 && decimal_rest <= 99
-            positivo = mi_variable.to_i * -1
-            (positivo + 1 ) * -1
-          else  
-            mi_variable.to_i
-          end
-      end
+    def retornando_busto
+        busto_medida() - sum_promedio()
     end
     
+    def retornando_cintura
+        cintura_medida() - sum_promedio()
+    end
+    
+    def retornando_cadera
+        cadera_medida() - sum_promedio()
+    end
+    
+
+    # obtener los flotantes de un numero y sumar el numero entero positivo o negativo
+    # def decimal_sum(mi_variable)
+    #   if mi_variable > 0
+    #     parts = mi_variable.to_s.split(".")
+    #     decimal_rest = parts[1].to_i
+        
+    #     if decimal_rest > 1 && decimal_rest <= 99
+    #       mi_variable.to_i + 1
+    #     else  
+    #       mi_variable.to_i
+    #     end
+    #   elsif
+    #     parts = mi_variable.to_s.split(".")
+    #     decimal_rest = parts[1].to_i
+        
+    #     if decimal_rest > 1 && decimal_rest <= 99
+    #       positivo = mi_variable.to_i * -1
+    #       (positivo + 1 ) * -1
+    #     else  
+    #       mi_variable.to_i
+    #     end
+    #   end
+    # end
+    
+    
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+   
     
 end
 
