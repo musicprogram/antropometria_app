@@ -8,7 +8,7 @@
       <th>Busto/Media/Acercar</th>
       <th>Cintura/Media/Acercar</th>
       <th>Cadera/Media/Acercar</th>
- 
+      <th>Media</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -20,7 +20,9 @@
         <td><%= measurement.bust %> | <%= measurement.busto_medida %> | <%= measurement.retornando_busto.round %></td>
         <td><%= measurement.waist %> | <%= measurement.cintura_medida %> | <%= measurement.retornando_cintura.round %></td>
         <td><%= measurement.hip %> | <%= measurement.cadera_medida %> | <%= measurement.retornando_cadera.round %></td>
-        <td><%= link_to 'Editar', edit_measurement_path(measurement) %></td>
+        <td><%= measurement.media_body %></td>
+        <!%= link_to 'Editar', edit_measurement_path(measurement) %>
+        <td><%= link_to 'Ver', measurement %></td>
         <td><%= link_to 'Eliminar', measurement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

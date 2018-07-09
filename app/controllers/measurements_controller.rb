@@ -25,7 +25,43 @@ class MeasurementsController < ApplicationController
   # POST /measurements.json
   def create
     @measurement = Measurement.new(measurement_params)
+  
+    
+    def busto_medida
+      busto = ((@measurement.bust - 98) / 4.90).round(2)
+    end
+ 
+    def cintura_medida
+      ((@measurement.waist - 80.73) /4.04).round(2)
+    end
 
+    def cadera_medida
+      ((@measurement.hip - 104.99) / 5.25).round(2)
+    end
+    
+    def sum_promedio
+       (busto_medida() + cintura_medida() + cadera_medida()) / 3
+    end
+    
+    def retornando_busto
+        busto_medida() - sum_promedio()
+    end
+    
+    def retornando_cintura
+        cintura_medida() - sum_promedio()
+    end
+    
+    def retornando_cadera
+        cadera_medida() - sum_promedio()
+    end
+    
+  
+    @measurement.media_body = retornando_busto().round, retornando_cintura().round, retornando_cadera().round
+  
+  
+  
+  
+  
     respond_to do |format|
       if @measurement.save
         format.html { redirect_to measurements_path, notice: 'Measurement was successfully created.' }
@@ -41,6 +77,40 @@ class MeasurementsController < ApplicationController
   # PATCH/PUT /measurements/1.json
   def update
     respond_to do |format|
+      
+    def busto_medida
+      ((@measurement.bust - 98) / 4.90).round(2)
+    end
+ 
+    def cintura_medida
+      ((@measurement.waist - 80.73) /4.04).round(2)
+    end
+
+    def cadera_medida
+      ((@measurement.hip - 104.99) / 5.25).round(2)
+    end
+    
+    def sum_promedio
+       (busto_medida() + cintura_medida() + cadera_medida()) / 3
+    end
+    
+    def retornando_busto
+        busto_medida() - sum_promedio()
+    end
+    
+    def retornando_cintura
+        cintura_medida() - sum_promedio()
+    end
+    
+    def retornando_cadera
+        cadera_medida() - sum_promedio()
+    end
+    
+  
+    @measurement.media_body = retornando_busto().round, retornando_cintura().round, retornando_cadera().round
+  
+  
+      
       if @measurement.update(measurement_params)
         format.html { redirect_to measurements_path, notice: 'Measurement was successfully updated.' }
         format.json { render :show, status: :ok, location: @measurement }
@@ -69,6 +139,6 @@ class MeasurementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def measurement_params
-      params.require(:measurement).permit(:bust, :waist, :hip)
+      params.require(:measurement).permit(:bust, :waist, :hip, :media_body)
     end
 end

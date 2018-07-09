@@ -94,34 +94,20 @@ class Measurement < ApplicationRecord
     
     
     
-    
-    def sumar 
-    self.bust * 100    
-        
-    end 
-    
-    
-    
-    
-    
-    
 
     
     
     def busto_medida
       busto = ((self.bust - 98) / 4.90).round(2)
     end
-    
  
     def cintura_medida
       ((self.waist - 80.73) /4.04).round(2)
     end
-    
 
     def cadera_medida
       ((self.hip - 104.99) / 5.25).round(2)
     end
-    
     
     def sum_promedio
        (busto_medida() + cintura_medida() + cadera_medida()) / 3
