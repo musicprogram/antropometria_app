@@ -9,7 +9,7 @@
       <th>Cintura/Media/Acercar</th>
       <th>Cadera/Media/Acercar</th>
       <th>Media</th>
-      <th colspan="2"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
   <tbody>
@@ -17,12 +17,11 @@
     
     
       <tr>
-        <td><%= measurement.bust %> | <%= measurement.busto_medida %> | <%= measurement.retornando_busto.round %></td>
-        <td><%= measurement.waist %> | <%= measurement.cintura_medida %> | <%= measurement.retornando_cintura.round %></td>
-        <td><%= measurement.hip %> | <%= measurement.cadera_medida %> | <%= measurement.retornando_cadera.round %></td>
-        <td><%= measurement.media_body %></td>
+        <td><%= measurement.bust %> | <%= measurement.busto_medida %> | <%= measurement.retornando_busto %></td>
+        <td><%= measurement.waist %> | <%= measurement.cintura_medida %> | <%= measurement.retornando_cintura %></td>
+        <td><%= measurement.hip %> | <%= measurement.cadera_medida %> | <%= measurement.retornando_cadera %></td>
+        <td><%= measurement.sum_promedio %></td>
         <!%= link_to 'Editar', edit_measurement_path(measurement) %>
-        <td><%= link_to 'Ver', measurement %></td>
         <td><%= link_to 'Eliminar', measurement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

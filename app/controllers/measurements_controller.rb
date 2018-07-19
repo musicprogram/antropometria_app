@@ -10,6 +10,23 @@ class MeasurementsController < ApplicationController
   # GET /measurements/1
   # GET /measurements/1.json
   def show
+  if @measurement.media_body == "[0, 0, 0]" 
+     @result = 'Perla'
+  elsif @measurement.media_body == "[0, 0, -1]" || @measurement.media_body == "[1, 0, -1]" || @measurement.media_body == "[1, 0, -2]" || @measurement.media_body == "[1, 1, -1]" || @measurement.media_body == "[1, -1, 1]" || @measurement.media_body == "[1, 1, -2]" || @measurement.media_body == "[2, 0, -2]" 
+    @result = 'Rubí'
+  elsif @measurement.media_body == "[0, 0, 1]" || @measurement.media_body == "[-1, 0, 1]" || @measurement.media_body == "[-1, 0, 2]" || @measurement.media_body == "[-1, -1, 1]" || @measurement.media_body == "[0, -1, 2]" || @measurement.media_body == "[-1, -1, 2]" || @measurement.media_body == "[-1, -1, 3]" || @measurement.media_body == "[-1, -2, 2]" || @measurement.media_body == "[2, 0, 1]" || @measurement.media_body == "[-2, 0, 2]" 
+    @result = 'Ambar'
+  elsif @measurement.media_body == "[1, 0, 0]" || @measurement.media_body == "[1, -1, -1]" || @measurement.media_body == "[2, 0, -1]" || @measurement.media_body == "[2, -1, -1]" || @measurement.media_body == "[2, 1, -2]" || @measurement.media_body == "[3, -2, -1]"   
+    @result ='Topacio'
+  elsif @measurement.media_body == "[-1, 0, 0]" || @measurement.media_body == "[-1, 1, 1]" || @measurement.media_body == "[-2, 1, 1]"
+    @result ='Esmeralda'
+  elsif @measurement.media_body == "[0, -1, 0]" || @measurement.media_body == "[0, -1, 1]" || @measurement.media_body == "[0, -2, 1]" || @measurement.media_body == "[0, -2, 2]" || @measurement.media_body == "[1, -1, 0]" || @measurement.media_body == "[1, -2, 1]" || @measurement.media_body == "[2, -2, 1]"
+    @result ='Lapizlasuli'
+  elsif @measurement.media_body == "[1, 2, -3]" || @measurement.media_body == "[0, 1, 0]" || @measurement.media_body == "[0, 1, -1]" || @measurement.media_body == "[0, 1, -2]" || @measurement.media_body == "[0, 2, -1]" || @measurement.media_body == "[0, 2, -2]" || @measurement.media_body == "[-1, 1, 0]" || @measurement.media_body == "[-1, 1, -1]" || @measurement.media_body == "[-1, 2, 0]" || @measurement.media_body == "[-1, 2, -1]" || @measurement.media_body == "[1, 2, -2]" || @measurement.media_body == "[-1, 2, -2]" ||  @measurement.media_body == "[-1, 3, -2]" || @measurement.media_body == "[-2, 1, 0]" || @measurement.media_body == "[-2, 2, 0]" || @measurement.media_body == "[-2, 2, -1]"
+    @result ='Amatista'
+  else
+    @result ='No existe'
+  end
   end
 
   # GET /measurements/new
@@ -27,44 +44,65 @@ class MeasurementsController < ApplicationController
     @measurement = Measurement.new(measurement_params)
   
     
+    
     def busto_medida
-      busto = ((@measurement.bust - 98) / 4.90).round(2)
+      ((@measurement.bust - 98) / 4.90)
     end
  
     def cintura_medida
-      ((@measurement.waist - 80.73) /4.04).round(2)
+      ((@measurement.waist - 80.73) /4.04)
     end
 
     def cadera_medida
-      ((@measurement.hip - 104.99) / 5.25).round(2)
+      ((@measurement.hip - 104.99) / 5.25)
     end
     
     def sum_promedio
-       (busto_medida() + cintura_medida() + cadera_medida()) / 3
+      (busto_medida() + cintura_medida() + cadera_medida()) / 3
     end
     
     def retornando_busto
-        busto_medida() - sum_promedio()
+      rest = (busto_medida() - sum_promedio()).round
+
+        if rest <= -1 
+          rest = -1
+        elsif rest >= 1
+          rest = 1
+        else
+          rest = 0
+        end
+               
     end
     
     def retornando_cintura
-        cintura_medida() - sum_promedio()
+      restu = (cintura_medida() - sum_promedio()).round
+        
+        if restu <= -1
+          restu = -1
+        elsif restu >= 1
+          restu = 1
+        else
+          rest = 0  
+        end
     end
     
     def retornando_cadera
-        cadera_medida() - sum_promedio()
+        restc = (cadera_medida() - sum_promedio()).round
+        
+        if restc <= -1 
+          restc = -1
+        elsif restc >= 1
+          restc = 1
+        else
+          rest = 0  
+        end
     end
-    
   
     @measurement.media_body = retornando_busto().round, retornando_cintura().round, retornando_cadera().round
   
-  
-  
-  
-  
     respond_to do |format|
       if @measurement.save
-        format.html { redirect_to measurements_path, notice: 'Measurement was successfully created.' }
+        format.html { redirect_to @measurement, notice: 'Measurement was successfully created.' }
         format.json { render :show, status: :created, location: @measurement }
       else
         format.html { render :new }
@@ -77,39 +115,6 @@ class MeasurementsController < ApplicationController
   # PATCH/PUT /measurements/1.json
   def update
     respond_to do |format|
-      
-    def busto_medida
-      ((@measurement.bust - 98) / 4.90).round(2)
-    end
- 
-    def cintura_medida
-      ((@measurement.waist - 80.73) /4.04).round(2)
-    end
-
-    def cadera_medida
-      ((@measurement.hip - 104.99) / 5.25).round(2)
-    end
-    
-    def sum_promedio
-       (busto_medida() + cintura_medida() + cadera_medida()) / 3
-    end
-    
-    def retornando_busto
-        busto_medida() - sum_promedio()
-    end
-    
-    def retornando_cintura
-        cintura_medida() - sum_promedio()
-    end
-    
-    def retornando_cadera
-        cadera_medida() - sum_promedio()
-    end
-    
-  
-    @measurement.media_body = retornando_busto().round, retornando_cintura().round, retornando_cadera().round
-  
-  
       
       if @measurement.update(measurement_params)
         format.html { redirect_to measurements_path, notice: 'Measurement was successfully updated.' }

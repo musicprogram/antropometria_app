@@ -98,31 +98,56 @@ class Measurement < ApplicationRecord
     
     
     def busto_medida
-      busto = ((self.bust - 98) / 4.90).round(2)
+      ((self.bust - 98) / 4.90)
     end
  
     def cintura_medida
-      ((self.waist - 80.73) /4.04).round(2)
+      ((self.waist - 80.73) /4.04)
     end
 
     def cadera_medida
-      ((self.hip - 104.99) / 5.25).round(2)
+      ((self.hip - 104.99) / 5.25)
     end
     
     def sum_promedio
-       (busto_medida() + cintura_medida() + cadera_medida()) / 3
+      (busto_medida() + cintura_medida() + cadera_medida()) / 3
     end
     
     def retornando_busto
-        busto_medida() - sum_promedio()
+      rest = (busto_medida() - sum_promedio()).round
+
+        if rest <= -1 
+          rest = -1
+        elsif rest >= 1
+          rest = 1
+        else
+          rest = 0
+        end
+               
     end
     
     def retornando_cintura
-        cintura_medida() - sum_promedio()
+      restu = (cintura_medida() - sum_promedio()).round
+        
+        if restu <= -1
+          restu = -1
+        elsif restu >= 1
+          restu = 1
+        else
+          rest = 0  
+        end
     end
     
     def retornando_cadera
-        cadera_medida() - sum_promedio()
+        restc = (cadera_medida() - sum_promedio()).round
+        
+        if restc <= -1 
+          restc = -1
+        elsif restc >= 1
+          restc = 1
+        else
+          rest = 0  
+        end
     end
     
 
