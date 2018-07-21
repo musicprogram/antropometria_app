@@ -1,14 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<%=  @result %>
-
-
-<%= @measurement.media_body %>
-
-<%= link_to 'Edit', edit_measurement_path(@measurement) %> |
-<%= link_to 'Back', measurements_path %>
-       
-
-
-
-
+<div class="row">
+  <div class="col s12 m8 offset-m2 center-align">
+    <h5 class="title mb-0">La forma de tu cuerpo es: <strong> <%= @result %> </strong></h5>
+  </div>
+</div>
+<div class="row pm-0">
+  <div class="col s12 m6 center-align pm-0">
+      <% if @result == "Perla" %>
+        <iframe src="http://localhost/OBJ/perla.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
+      <% elsif @result == "Rubí" %>
+        <iframe src="http://localhost/OBJ/rubi.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
+      <% elsif @result == "Ambar" %>
+        <iframe src="http://localhost/OBJ/ambar.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
+      <% elsif @result == "Topacio" %>
+        <iframe src="http://localhost/OBJ/topacio.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
+      <% elsif @result == "Esmeralda" %>
+        <iframe src="http://localhost/OBJ/esmeralda.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
+      <% elsif @result == "Lapizlasuli" %>
+        <iframe src="http://localhost/OBJ/lapizlazuli.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
+      <% elsif @result == "Amatista" %>
+        <iframe src="http://localhost/OBJ/amatista.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
+      <% end %>
+  </div>
+  <div class="col s12 m6 center-align">
+    <iframe width="560" height="315" class="iframe" src="https://www.youtube.com/embed/s31XTrGJchQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m8 offset-m2">
+    <%= link_to 'Nueva Medida', :back, class:"btn btn-large width-100" %>
+  </div>
+</div>

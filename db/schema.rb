@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180706155259) do
+ActiveRecord::Schema.define(version: 20180720202515) do
 
   create_table "measurements", force: :cascade do |t|
     t.float "bust"
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 20180706155259) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "media_body"
+    t.string "cedula"
+    t.date "birthdate"
+    t.string "residence"
+    t.integer "age"
   end
 
 end

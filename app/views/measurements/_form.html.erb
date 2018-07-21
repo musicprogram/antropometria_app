@@ -1,32 +1,80 @@
 <%= form_with(model: measurement, local: true) do |form| %>
   <% if measurement.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(measurement.errors.count, "error") %> prohibited this measurement from being saved:</h2>
-
-      <ul>
-      <% measurement.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="container row" id="error_explanation">
+      <div class="col s12 m7 offset-m2 center-align">
+        <ul class="">
+          <li class="red-text center-align">*Por favor no deje ningún campo vacio.</li>
+        </ul>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :bust %>
-    <%= form.text_field :bust, id: :measurement_bust %>
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="field form">
+        <div class="input-field">
+          <%= form.label :cedula, "Cedula: ", class:"black-text label" %>
+          <%= form.text_field :cedula, id: :cedula %>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6">
+      <div class="field form">
+        <div class="input-field">
+          <%= form.label :residence, "Residencia: ", class:"black-text label" %>
+          <%= form.text_field :residence, id: :residence %>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6">
+      <div class="field form">
+        <div class="input-field">
+          <%= form.label :birthdate, "Fecha Nacimiento: ", class:"black-text label" %>
+          <%= form.text_field :birthdate, id: :birthdate %>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6">
+      <div class="field form">
+          <%= form.label :age, "Edad: ", class:"black-text label" %>
+          <%= form.text_field :age, id: :age %>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="field form">
+          <div class="input-field">
+            <%= form.label :bust, "Busto: ", class:"black-text label center-align" %> <span id="value"></span>
+            <%= form.text_field :bust, id: :measurement_bust, min: "0", max: "200", step:"10" %>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="field form">
+          <div class="input-field">
+            <%= form.label :waist, "Cintura: ", class:"black-text label" %>
+            <%= form.text_field :waist, id: :measurement_waist %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    <div class="col s12 m6">
+      <div class="field form">
+        <div class="input-field">
+          <%= form.label :hip, "Cadera: ", class:"black-text label" %>
+          <%= form.text_field :hip, id: :measurement_hip %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :waist %>
-    <%= form.text_field :waist, id: :measurement_waist %>
-  </div>
 
-  <div class="field">
-    <%= form.label :hip %>
-    <%= form.text_field :hip, id: :measurement_hip %>
+<div class="row">
+  <div class="col s12 m6 offset-m3">
+    <div class="actions">
+      <%= form.submit "Analizar", class:"btn btn-large width-100" %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
 <% end %>
