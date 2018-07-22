@@ -1,23 +1,23 @@
 <div class="row">
   <div class="col s12 m8 offset-m2 center-align">
-    <h5 class="title mb-0">La forma de tu cuerpo es: <strong> <%= @result %> </strong></h5>
+    <h5 class="title mb-0">La forma de tu cuerpo es: <strong> <%= @result %> || <%= @measurement.media_body%></strong></h5>
   </div>
 </div>
 <div class="row pm-0">
   <div class="col s12 center-align pm-0">
-      <% if @result == "Perla" %>
+      <% if @result == "perla" %>
         <iframe src="http://localhost:8000/perla.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "Rubí" %>
+      <% elsif @result == "rubí" %>
         <iframe src="http://localhost:8000/rubi.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "Ambar" %>
+      <% elsif @result == "ambar" %>
         <iframe src="http://localhost:8000/ambar.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "Topacio" %>
+      <% elsif @result == "topacio" %>
         <iframe src="http://localhost:8000/topacio.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "Esmeralda" %>
+      <% elsif @result == "esmeralda" %>
         <iframe src="http://localhost:8000/esmeralda.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "Lapizlasuli" %>
+      <% elsif @result == "lapislázuli" %>
         <iframe src="http://localhost:8000/lapizlazuli.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "Amatista" %>
+      <% elsif @result == "amatista" %>
         <iframe src="http://localhost:8000/amatista.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
       <% end %>
   </div>
@@ -30,3 +30,4 @@
     <%= link_to 'Nueva Medida', :back, class:"btn btn-large width-100" %>
   </div>
 </div>
+

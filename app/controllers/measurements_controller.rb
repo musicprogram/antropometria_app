@@ -12,19 +12,19 @@ class MeasurementsController < ApplicationController
   # GET /measurements/1.json
   def show
   if @measurement.media_body == "[0, 0, 0]"
-     @result = 'Perla'
+     @result = 'perla'
   elsif @measurement.media_body == "[0, 0, -1]" || @measurement.media_body == "[1, 0, -1]" || @measurement.media_body == "[1, 0, -2]" || @measurement.media_body == "[1, 1, -1]" || @measurement.media_body == "[1, -1, 1]" || @measurement.media_body == "[1, 1, -2]" || @measurement.media_body == "[2, 0, -2]"
-    @result = 'Rubí'
+    @result = 'rubí'
   elsif @measurement.media_body == "[0, 0, 1]" || @measurement.media_body == "[-1, 0, 1]" || @measurement.media_body == "[-1, 0, 2]" || @measurement.media_body == "[-1, -1, 1]" || @measurement.media_body == "[0, -1, 2]" || @measurement.media_body == "[-1, -1, 2]" || @measurement.media_body == "[-1, -1, 3]" || @measurement.media_body == "[-1, -2, 2]" || @measurement.media_body == "[2, 0, 1]" || @measurement.media_body == "[-2, 0, 2]"
-    @result = 'Ambar'
+    @result = 'ámbar'
   elsif @measurement.media_body == "[1, 0, 0]" || @measurement.media_body == "[1, -1, -1]" || @measurement.media_body == "[2, 0, -1]" || @measurement.media_body == "[2, -1, -1]" || @measurement.media_body == "[2, 1, -2]" || @measurement.media_body == "[3, -2, -1]"
-    @result ='Topacio'
+    @result ='topacio'
   elsif @measurement.media_body == "[-1, 0, 0]" || @measurement.media_body == "[-1, 1, 1]" || @measurement.media_body == "[-2, 1, 1]"
-    @result ='Esmeralda'
+    @result ='esmeralda'
   elsif @measurement.media_body == "[0, -1, 0]" || @measurement.media_body == "[0, -1, 1]" || @measurement.media_body == "[0, -2, 1]" || @measurement.media_body == "[0, -2, 2]" || @measurement.media_body == "[1, -1, 0]" || @measurement.media_body == "[1, -2, 1]" || @measurement.media_body == "[2, -2, 1]"
-    @result ='Lapizlasuli'
+    @result ='lapislázuli'
   elsif @measurement.media_body == "[1, 2, -3]" || @measurement.media_body == "[0, 1, 0]" || @measurement.media_body == "[0, 1, -1]" || @measurement.media_body == "[0, 1, -2]" || @measurement.media_body == "[0, 2, -1]" || @measurement.media_body == "[0, 2, -2]" || @measurement.media_body == "[-1, 1, 0]" || @measurement.media_body == "[-1, 1, -1]" || @measurement.media_body == "[-1, 2, 0]" || @measurement.media_body == "[-1, 2, -1]" || @measurement.media_body == "[1, 2, -2]" || @measurement.media_body == "[-1, 2, -2]" ||  @measurement.media_body == "[-1, 3, -2]" || @measurement.media_body == "[-2, 1, 0]" || @measurement.media_body == "[-2, 2, 0]" || @measurement.media_body == "[-2, 2, -1]"
-    @result ='Amatista'
+    @result ='amatista'
   else
     @result ='No existe'
   end
