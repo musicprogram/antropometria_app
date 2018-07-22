@@ -16,6 +16,9 @@
 //= require materialize
 //= require_tree .
 
+
+/* 
 document.addEventListener('DOMContentLoaded',  function() {
   $("#birthdate").datepicker();
 });
+*/

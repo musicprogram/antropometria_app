@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20180720202515) do
     t.datetime "updated_at", null: false
     t.string "media_body"
     t.string "cedula"
-    t.date "birthdate"
+    t.string "birthdate"
     t.string "residence"
     t.integer "age"
   end
