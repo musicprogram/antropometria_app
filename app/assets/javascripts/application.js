@@ -22,3 +22,7 @@ document.addEventListener('DOMContentLoaded',  function() {
   $("#birthdate").datepicker();
 });
 */
+
+$(document).ready(function(){
+	$(".modal").modal();
+});

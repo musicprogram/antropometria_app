@@ -3,31 +3,56 @@
     <h5 class="title mb-0">La forma de tu cuerpo es: <strong> <%= @result %> || <%= @measurement.media_body%></strong></h5>
   </div>
 </div>
-<div class="row pm-0">
-  <div class="col s12 center-align pm-0">
-      <% if @result == "perla" %>
-        <iframe src="http://localhost:8000/perla.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "rubí" %>
-        <iframe src="http://localhost:8000/rubi.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "ambar" %>
-        <iframe src="http://localhost:8000/ambar.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "topacio" %>
-        <iframe src="http://localhost:8000/topacio.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "esmeralda" %>
-        <iframe src="http://localhost:8000/esmeralda.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "lapislázuli" %>
-        <iframe src="http://localhost:8000/lapizlazuli.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% elsif @result == "amatista" %>
-        <iframe src="http://localhost:8000/amatista.html"  class="iframe" width="100%" height="330" frameborder="0"></iframe>
-      <% end %>
-  </div>
-  <div class="col s12 center-align">
-    <iframe width="560" height="315" class="iframe" src="https://www.youtube.com/embed/s31XTrGJchQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </div>
-</div>
 <div class="row">
-  <div class="col s12 m8 offset-m2">
+  <div class="col s12 m4 offset-m2">
+    <a href="#modal1" class="btn modal-trigger btn-large width-100">Modelo 3D</a>
+  </div>
+  <div class="col s12 m4">
     <%= link_to 'Nueva Medida', :back, class:"btn btn-large width-100" %>
   </div>
 </div>
-
+<div class="row pm-0">
+  <div class="col s12 center-align">
+           <% if @result == "perla" %>
+            <%= video_tag("perla.mp4", size: "900x500", preload: true, :autoplay => "autoplay", loop: "")%>
+            <% elsif @result == "amatista" %>
+              <%= video_tag("amatista.mp4", size: "900x500", preload: true, :autoplay => "autoplay", loop: "")%>
+            <% elsif @result == "rubí" %>
+              <%= video_tag("rubi.mp4", size: "900x500", preload: true, :autoplay => "autoplay", loop: "")%>
+            <% elsif @result == "ámbar" %>
+              <%= video_tag("ambar.mp4", size: "900x500", preload: true, :autoplay => "autoplay", loop: "")%>
+            <% elsif @result == "topacio" %>
+             <%= video_tag("topacio.mp4", size: "900x500", preload: true, :autoplay => "autoplay", loop: "")%>
+            <% elsif @result == "esmeralda"%>
+              <%= video_tag("esmeralda.mp4", size: "900x500", preload: true, :autoplay => "autoplay", loop: "")%>
+            <% elsif @result == "lapizlázuli"%>
+              <%= video_tag("lapizlazuli.mp4", size: "900x500", preload: true, :autoplay => "autoplay", loop: "")%>
+            <% end %>
+  </div>
+</div>
+  <div id="modal1" class="modal" tabindex="0">
+    <div class="modal-content">
+      <h4 class="title center-align"> <strong> <%= @result %> || <%= @measurement.media_body%></strong></h4>
+      <div class="row">
+          <div class="col m1"></div>
+          <div class="col m10">
+            <% if @result == "perla" %>
+              <iframe src="http://localhost/OBJ/perla.html"  frameborder="0" width="100%" height="300"></iframe>
+            <% elsif @result == "amatista" %>
+              <iframe src="http://localhost/OBJ/amatista.html" frameborder="0" width="100%" height="300"></iframe>
+            <% elsif @result == "rubí" %>
+              <iframe src="http://localhost/OBJ/rubi.html" frameborder="0" width="600" height="300"></iframe>
+            <% elsif @result == "ámbar" %>
+              <iframe src="http://localhost/OBJ/ambar.html" frameborder="0" width="600" height="300"></iframe>
+            <% elsif @result == "topacio" %>
+              <iframe src="http://localhost/OBJ/topacio.html" frameborder="0" width="600" height="300"></iframe>
+            <% elsif @result == "esmeralda"%>
+              <iframe src="http://localhost/OBJ/esmeralda.html" frameborder="0" width="600" height="300"></iframe>
+            <% elsif @result == "lapizlázuli"%>
+              <iframe src="http://localhost/OBJ/lapizlazuli.html" frameborder="0" width="600" height="300"></iframe>
+            <% end %>
+          </div>
+          <div class="col m1"></div>
+      </div>
+    </div>
+  </div>

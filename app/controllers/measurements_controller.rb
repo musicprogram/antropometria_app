@@ -1,5 +1,5 @@
 class MeasurementsController < ApplicationController
-  before_action :set_measurement, only: [:show, :edit, :update, :destroy]
+  before_action :set_measurement, only: [:show, :edit, :update, :destroy, :show_model_3D]
 
   # GET /measurements
   # GET /measurements.json
@@ -11,23 +11,23 @@ class MeasurementsController < ApplicationController
   # GET /measurements/1
   # GET /measurements/1.json
   def show
-  if @measurement.media_body == "[0, 0, 0]"
-     @result = 'perla'
-  elsif @measurement.media_body == "[0, 0, -1]" || @measurement.media_body == "[1, 0, -1]" || @measurement.media_body == "[1, 0, -2]" || @measurement.media_body == "[1, 1, -1]" || @measurement.media_body == "[1, -1, 1]" || @measurement.media_body == "[1, 1, -2]" || @measurement.media_body == "[2, 0, -2]"
-    @result = 'rubí'
-  elsif @measurement.media_body == "[0, 0, 1]" || @measurement.media_body == "[-1, 0, 1]" || @measurement.media_body == "[-1, 0, 2]" || @measurement.media_body == "[-1, -1, 1]" || @measurement.media_body == "[0, -1, 2]" || @measurement.media_body == "[-1, -1, 2]" || @measurement.media_body == "[-1, -1, 3]" || @measurement.media_body == "[-1, -2, 2]" || @measurement.media_body == "[2, 0, 1]" || @measurement.media_body == "[-2, 0, 2]"
-    @result = 'ámbar'
-  elsif @measurement.media_body == "[1, 0, 0]" || @measurement.media_body == "[1, -1, -1]" || @measurement.media_body == "[2, 0, -1]" || @measurement.media_body == "[2, -1, -1]" || @measurement.media_body == "[2, 1, -2]" || @measurement.media_body == "[3, -2, -1]"
-    @result ='topacio'
-  elsif @measurement.media_body == "[-1, 0, 0]" || @measurement.media_body == "[-1, 1, 1]" || @measurement.media_body == "[-2, 1, 1]"
-    @result ='esmeralda'
-  elsif @measurement.media_body == "[0, -1, 0]" || @measurement.media_body == "[0, -1, 1]" || @measurement.media_body == "[0, -2, 1]" || @measurement.media_body == "[0, -2, 2]" || @measurement.media_body == "[1, -1, 0]" || @measurement.media_body == "[1, -2, 1]" || @measurement.media_body == "[2, -2, 1]"
-    @result ='lapislázuli'
-  elsif @measurement.media_body == "[1, 2, -3]" || @measurement.media_body == "[0, 1, 0]" || @measurement.media_body == "[0, 1, -1]" || @measurement.media_body == "[0, 1, -2]" || @measurement.media_body == "[0, 2, -1]" || @measurement.media_body == "[0, 2, -2]" || @measurement.media_body == "[-1, 1, 0]" || @measurement.media_body == "[-1, 1, -1]" || @measurement.media_body == "[-1, 2, 0]" || @measurement.media_body == "[-1, 2, -1]" || @measurement.media_body == "[1, 2, -2]" || @measurement.media_body == "[-1, 2, -2]" ||  @measurement.media_body == "[-1, 3, -2]" || @measurement.media_body == "[-2, 1, 0]" || @measurement.media_body == "[-2, 2, 0]" || @measurement.media_body == "[-2, 2, -1]"
-    @result ='amatista'
-  else
-    @result ='No existe'
-  end
+    if @measurement.media_body == "[0, 0, 0]"
+       @result = 'perla'
+    elsif @measurement.media_body == "[0, 0, -1]" || @measurement.media_body == "[1, 0, -1]" || @measurement.media_body == "[1, 0, -2]" || @measurement.media_body == "[1, 1, -1]" || @measurement.media_body == "[1, -1, 1]" || @measurement.media_body == "[1, 1, -2]" || @measurement.media_body == "[2, 0, -2]"
+      @result = 'rubí'
+    elsif @measurement.media_body == "[0, 0, 1]" || @measurement.media_body == "[-1, 0, 1]" || @measurement.media_body == "[-1, 0, 2]" || @measurement.media_body == "[-1, -1, 1]" || @measurement.media_body == "[0, -1, 2]" || @measurement.media_body == "[-1, -1, 2]" || @measurement.media_body == "[-1, -1, 3]" || @measurement.media_body == "[-1, -2, 2]" || @measurement.media_body == "[2, 0, 1]" || @measurement.media_body == "[-2, 0, 2]"
+      @result = 'ámbar'
+    elsif @measurement.media_body == "[1, 0, 0]" || @measurement.media_body == "[1, -1, -1]" || @measurement.media_body == "[2, 0, -1]" || @measurement.media_body == "[2, -1, -1]" || @measurement.media_body == "[2, 1, -2]" || @measurement.media_body == "[3, -2, -1]"
+      @result ='topacio'
+    elsif @measurement.media_body == "[-1, 0, 0]" || @measurement.media_body == "[-1, 1, 1]" || @measurement.media_body == "[-2, 1, 1]"
+      @result ='esmeralda'
+    elsif @measurement.media_body == "[0, -1, 0]" || @measurement.media_body == "[0, -1, 1]" || @measurement.media_body == "[0, -2, 1]" || @measurement.media_body == "[0, -2, 2]" || @measurement.media_body == "[1, -1, 0]" || @measurement.media_body == "[1, -2, 1]" || @measurement.media_body == "[2, -2, 1]"
+      @result ='lapislázuli'
+    elsif @measurement.media_body == "[1, 2, -3]" || @measurement.media_body == "[0, 1, 0]" || @measurement.media_body == "[0, 1, -1]" || @measurement.media_body == "[0, 1, -2]" || @measurement.media_body == "[0, 2, -1]" || @measurement.media_body == "[0, 2, -2]" || @measurement.media_body == "[-1, 1, 0]" || @measurement.media_body == "[-1, 1, -1]" || @measurement.media_body == "[-1, 2, 0]" || @measurement.media_body == "[-1, 2, -1]" || @measurement.media_body == "[1, 2, -2]" || @measurement.media_body == "[-1, 2, -2]" ||  @measurement.media_body == "[-1, 3, -2]" || @measurement.media_body == "[-2, 1, 0]" || @measurement.media_body == "[-2, 2, 0]" || @measurement.media_body == "[-2, 2, -1]"
+      @result ='amatista'
+    else
+      @result ='No existe'
+    end
   end
 
   # GET /measurements/new
