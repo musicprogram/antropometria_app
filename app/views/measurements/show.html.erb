@@ -5,19 +5,19 @@
     <div class="card">
       <div class="card-image">
        <% if @result == "perla" %>
-        <%= video_tag("perla.mp4", preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
+        <%= video_tag("https://s3.amazonaws.com/tutorialespatronessena/antropometria/perla.mp4", preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
        <% elsif @result == "amatista" %>
-        <%= video_tag("amatista.mp4", preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
+        <%= video_tag("https://s3.amazonaws.com/tutorialespatronessena/antropometria/amatista.mp4", preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
        <% elsif @result == "rubí" %>
-        <%= video_tag("rubi.mp4",  preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
+        <%= video_tag("https://s3.amazonaws.com/tutorialespatronessena/antropometria/rubi.mp4",  preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
        <% elsif @result == "ámbar" %>
-        <%= video_tag("ambar.mp4",  preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
+        <%= video_tag("https://s3.amazonaws.com/tutorialespatronessena/antropometria/ambar.mp4",  preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
        <% elsif @result == "topacio" %>
-        <%= video_tag("topacio.mp4", preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
+        <%= video_tag("https://s3.amazonaws.com/tutorialespatronessena/antropometria/topacio.mp4", preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
        <% elsif @result == "esmeralda"%>
-       <%= video_tag("esmeralda.mp4", preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
+       <%= video_tag("https://s3.amazonaws.com/tutorialespatronessena/antropometria/esmeralda.mp4", preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
         <% elsif @result == "lapislázuli"%>
-        <%= video_tag("lapislazuli.mp4", preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
+        <%= video_tag("https://s3.amazonaws.com/tutorialespatronessena/antropometria/lapislazuli.mp4", preload: true, :autoplay => "autoplay", loop: "", class: 'responsive-video')%>
        <% end %>
        <span class="card-title">
         <h5 class="title mb-0 black-text"><strong> <%= @result %></strong></h5>
