@@ -11,7 +11,7 @@ class MeasurementsController < ApplicationController
   # GET /measurements/1
   # GET /measurements/1.json
   def show
-    if @measurement.media_body == "[0, 0, 0]"
+    if @measurement.media_body == "[0, 0, 0]" || @measurement.media_body == "[1, 1, 1]"
        @result = 'perla'
     elsif @measurement.media_body == "[0, 0, -1]" || @measurement.media_body == "[1, 0, -1]" || @measurement.media_body == "[1, 0, -2]" || @measurement.media_body == "[1, 1, -1]" || @measurement.media_body == "[1, -1, 1]" || @measurement.media_body == "[1, 1, -2]" || @measurement.media_body == "[2, 0, -2]"
       @result = 'rubí'
