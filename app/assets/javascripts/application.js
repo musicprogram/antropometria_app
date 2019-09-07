@@ -41,4 +41,5 @@ document.addEventListener('DOMContentLoaded', function() {
 $(document).ready(function(){
 	$(".modal").modal();
 	$('.fixed-action-btn').floatingActionButton();
+	$('.tooltipped').tooltip();
 });
